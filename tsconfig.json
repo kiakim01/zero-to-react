@@ -1,13 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ES2015",        // 변환할 JavaScript 버전
-    "module": "commonjs",      // 모듈 시스템 (e.g. commonjs, esnext)
-    "outDir": "./dist",        // 컴파일된 파일 출력 폴더
+    "target": "ES2015",
+    "module": "commonjs",
+    "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,      // 타입 정의 파일 검사 건너뛰기
-    "jsx": "react"             // JSX 지원
+    "skipLibCheck": true,
+    "jsx": "react",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"],
+      "@assets/*": ["src/assets/*"],
+      "@types/*": ["src/types/*"],
+      "@api/*": ["src/api/*"],
+      "@lib/*": ["src/lib/*"]
+    }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/**/*.js"],
   "exclude": ["node_modules", "dist"]
 }
