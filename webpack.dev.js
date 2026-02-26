@@ -16,7 +16,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'], // style-loader를 사용하여 CSS를 DOM에 주입
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(ts|tsx)$/,

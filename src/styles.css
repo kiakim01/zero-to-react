@@ -1,9 +1,49 @@
-/* src/styles.css */
-h1 {
-  color: teal;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 와챠 OTT 커스텀 스타일 */
+.watcha-bg-dark {
+  background-color: #141414;
 }
 
-.app-container {
-  background-color: lavender;
-  padding: 20px;
+.watcha-bg-red {
+  background-color: #FF0558;
+}
+
+.watcha-bg-gray {
+  background-color: #2a2a2a;
+}
+
+.watcha-text-white {
+  color: white;
+}
+
+.watcha-text-red {
+  color: #FF0558;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.movie-card {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  transition: transform 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  background-color: #333333;
+}
+
+.movie-poster {
+  width: 100%;
+  border-radius: 4px;
+  aspect-ratio: 2/3;
+  object-fit: cover;
 }
