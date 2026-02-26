@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 전체 화면 여백 제거 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #141414;
+}
+
+#root {
+  margin: 0;
+  padding: 50px;
+}
+
 /* 와챠 OTT 커스텀 스타일 */
 .watcha-bg-dark {
   background-color: #141414;
@@ -30,15 +48,14 @@
 }
 
 .movie-card {
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 8px;
-  background-color: #2a2a2a;
+  background-color: transparent;
   transition: transform 0.2s ease;
 }
 
 .movie-card:hover {
   transform: scale(1.05);
-  background-color: #333333;
 }
 
 .movie-poster {
@@ -46,4 +63,11 @@
   border-radius: 4px;
   aspect-ratio: 2/3;
   object-fit: cover;
+  border: none;
+  outline: none;
+}
+
+/* 헤더 호버 효과 */
+.hover\:watcha-text-red:hover {
+  color: #FF0558;
 }

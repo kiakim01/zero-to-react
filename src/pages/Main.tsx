@@ -1,14 +1,16 @@
 import React from 'react'
 import { usePopularMovies } from '../hooks/usePopularMovies'
 import { Movie } from '../types/tmdb'
+import Header from '../components/Header'
 
 function Main() {
   const { data, isLoading, error } = usePopularMovies()
 
   return (
-    <div className="watcha-bg-dark watcha-text-white min-h-screen">
+    <div>
+      <Header />
       <div className="app-container">
-        <h1 className="watcha-text-red text-4xl font-bold mb-8">와챠</h1>
+
 
         {isLoading && <p className="text-center text-lg">영화를 불러오는 중...</p>}
 

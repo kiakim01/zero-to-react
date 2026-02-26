@@ -7,7 +7,10 @@ function App() {
 
 
   return (
-   <Main/>
+    <div className="watcha-bg-dark watcha-text-white min-h-screen">
+      <Main/>
+    </div>
+
   )
 }
 
