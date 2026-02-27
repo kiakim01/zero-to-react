@@ -7,8 +7,8 @@ function Header() {
         {/* 좌측: 로고 */}
         <div className="logo-section">
         <svg
-          width="120"
-          height="36"
+          width="88"
+          height="26"
           viewBox="0 0 196 59"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +32,8 @@ function Header() {
         <div className="nav-section">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           fill="none"
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -49,8 +49,8 @@ function Header() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           fill="none"
           viewBox="0 0 24 24"
           aria-hidden="true"

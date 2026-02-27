@@ -69,11 +69,12 @@ body, html {
 
 /* 헤더 스타일 */
 .header-wrapper {
-  background-color: #1a1a1a;
-  padding: 1rem 2rem;
+  background-color: #141414;
+  padding: 0.75rem 1.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-container {
@@ -92,16 +93,16 @@ body, html {
 .nav-section {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .login-button {
   background-color: #FF0558;
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 3px;
   border: none;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
   transition: opacity 0.2s;
@@ -147,4 +148,354 @@ body, html {
   color: #9ca3af;
   font-size: 0.875rem;
   margin-top: 0.25rem;
+}
+
+/* 히어로 섹션 스타일 */
+.hero-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.hero-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.hero-background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 20%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+.hero-content {
+  max-width: 500px;
+  color: white;
+  z-index: 2;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.hero-year {
+  color: #e5e5e5;
+}
+
+.hero-rating {
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.hero-overview {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #e5e5e5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-play-button,
+.hero-info-button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-play-button {
+  background-color: #FF0558;
+  color: white;
+}
+
+.hero-play-button:hover {
+  background-color: #e0044d;
+  transform: scale(1.05);
+}
+
+.hero-info-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-info-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* 히어로 네비게이션 버튼 */
+.hero-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 120px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.hero-carousel-wrapper:hover .hero-nav-button {
+  opacity: 1;
+}
+
+.hero-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hero-nav-prev {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.hero-nav-next {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+/* 히어로 인디케이터 */
+.hero-indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+
+.hero-indicator {
+  width: 40px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-indicator.active {
+  background-color: #FF0558;
+  width: 60px;
+}
+
+.hero-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 히어로 슬라이드 애니메이션 */
+.hero-slide.active {
+  visibility: visible;
+}
+
+.hero-slide.next {
+  visibility: visible;
+}
+
+.hero-slide.prev {
+  visibility: hidden;
+}
+
+/* 섹션 타이틀 스타일 */
+.section-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+/* 캐러셀 스타일 */
+.carousel-container {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.carousel-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+}
+
+.carousel-content {
+  overflow: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 calc(16.66% - 1rem);
+  min-width: 0;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-button-prev {
+  left: -50px;
+  border-radius: 0 4px 4px 0;
+}
+
+.carousel-button-next {
+  right: -50px;
+  border-radius: 4px 0 0 4px;
+}
+
+.carousel-wrapper:hover .carousel-button-prev {
+  left: 0;
+}
+
+.carousel-wrapper:hover .carousel-button-next {
+  right: 0;
+}
+
+/* 캐러셀 내 영화 카드 스타일 수정 */
+.carousel-item .movie-card {
+  padding: 0;
+  background-color: transparent;
+  transition: transform 0.2s ease;
+}
+
+.carousel-item .movie-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.carousel-item .movie-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.carousel-item .movie-title {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carousel-item .movie-info {
+  font-size: 0.8rem;
+}
+
+/* 반응형 - 화면 크기에 따라 보여지는 영화 개수 조정 */
+@media (max-width: 1400px) {
+  .carousel-item {
+    flex: 0 0 calc(20% - 1rem);
+  }
+}
+
+@media (max-width: 1200px) {
+  .carousel-item {
+    flex: 0 0 calc(25% - 1rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .carousel-item {
+    flex: 0 0 calc(33.33% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item {
+    flex: 0 0 calc(100% - 1rem);
+  }
 }
