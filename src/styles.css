@@ -17,7 +17,7 @@ body, html {
 
 #root {
   margin: 0;
-  padding: 50px;
+  padding: 0;
 }
 
 /* 와챠 OTT 커스텀 스타일 */
@@ -67,7 +67,84 @@ body, html {
   outline: none;
 }
 
-/* 헤더 호버 효과 */
-.hover\:watcha-text-red:hover {
+/* 헤더 스타일 */
+.header-wrapper {
+  background-color: #1a1a1a;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.login-button {
+  background-color: #FF0558;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.login-button:hover {
+  opacity: 0.8;
+}
+
+/* 메인 페이지 스타일 */
+.main-wrapper {
+  background-color: #141414;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.loading-text {
+  color: white;
+  text-align: center;
+  font-size: 1.125rem;
+  padding: 2rem;
+}
+
+.error-text {
   color: #FF0558;
+  text-align: center;
+  padding: 2rem;
+}
+
+.movie-title {
+  color: white;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.movie-info {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }

@@ -7,14 +7,14 @@ function Main() {
   const { data, isLoading, error } = usePopularMovies()
 
   return (
-    <div>
+    <div className="main-wrapper">
       <Header />
       <div className="app-container">
 
 
-        {isLoading && <p className="text-center text-lg">영화를 불러오는 중...</p>}
+        {isLoading && <p className="loading-text">영화를 불러오는 중...</p>}
 
-        {error && <p className="watcha-text-red text-center">Error: {error.message}</p>}
+        {error && <p className="error-text">Error: {error.message}</p>}
 
         {data && (
           <div>
@@ -26,9 +26,9 @@ function Main() {
                     alt={movie.title}
                     className="movie-poster"
                   />
-                  <h3 className="watcha-text-white font-semibold mt-2">{movie.title}</h3>
-                  <p className="text-gray-400 text-sm">평점: {movie.vote_average}/10</p>
-                  <p className="text-gray-400 text-sm">{movie.release_date}</p>
+                  <h3 className="movie-title">{movie.title}</h3>
+                  <p className="movie-info">평점: {movie.vote_average}/10</p>
+                  <p className="movie-info">{movie.release_date}</p>
                 </div>
               ))}
             </div>
