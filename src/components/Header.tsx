@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
@@ -30,22 +31,24 @@ function Header() {
 
         {/* 우측: 검색, 알림, 프로필 */}
         <div className="nav-section">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="none"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          style={{ color: 'inherit' }}
-        >
-          <path
-            fill="white"
-            fillRule="evenodd"
-            d="M11.17 4.8a6.37 6.37 0 1 1 0 12.74 6.37 6.37 0 0 1 0-12.74m0-1.8a8.17 8.17 0 0 1 6.45 13.18L22 20.56 20.56 22l-4.38-4.38a8.17 8.17 0 1 1-5-14.62"
-            clipRule="evenodd"
-          />
-        </svg>
+        <Link to="/search" style={{ display: 'flex', alignItems: 'center', color: 'inherit' }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            style={{ color: 'inherit' }}
+          >
+            <path
+              fill="white"
+              fillRule="evenodd"
+              d="M11.17 4.8a6.37 6.37 0 1 1 0 12.74 6.37 6.37 0 0 1 0-12.74m0-1.8a8.17 8.17 0 0 1 6.45 13.18L22 20.56 20.56 22l-4.38-4.38a8.17 8.17 0 1 1-5-14.62"
+              clipRule="evenodd"
+            />
+          </svg>
+        </Link>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"

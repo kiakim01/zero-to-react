@@ -11,6 +11,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.css$/,
+        exclude: /\.module\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -21,6 +22,32 @@ module.exports = merge(common, {
                 plugins: [
                   require('postcss-preset-env')({
                     browsers: 'last 2 versions', // 지원할 브라우저 범위 설정
+                  }),
+                ],
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.module\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('postcss-preset-env')({
+                    browsers: 'last 2 versions',
                   }),
                 ],
               },

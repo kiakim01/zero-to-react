@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { Movie } from '../types/tmdb'
+import MovieCard from './MovieCard'
 
 interface MovieCarouselProps {
   title: string
@@ -9,7 +10,7 @@ interface MovieCarouselProps {
 function MovieCarousel({ title, movies }: MovieCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
-  const itemsPerView = 6 // 한 화면에 보여줄 영화 개수
+  const itemsPerView = 5 // 한 화면에 보여줄 영화 개수 (5의 배수)
   
   const maxIndex = Math.ceil(movies.length / itemsPerView) - 1
 
@@ -47,19 +48,18 @@ function MovieCarousel({ title, movies }: MovieCarouselProps) {
         
         <div className="carousel-content" ref={carouselRef}>
           <div className="carousel-track">
-            {movies.map((movie) => (
-              <div key={movie.id} className="carousel-item">
-                <div className="movie-card">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                    className="movie-poster"
-                  />
-                  <h3 className="movie-title">{movie.title}</h3>
-                  <p className="movie-info">⭐ {movie.vote_average.toFixed(1)}</p>
-                  <p className="movie-info">{movie.release_date?.split('-')[0]}</p>
-                </div>
-              </div>
+            {movies.map((movie, index) => (
+              <MovieCard
+                key={movie.id}
+                id={movie.id}
+                title={movie.title}
+                posterPath={movie.poster_path}
+                voteAverage={movie.vote_average}
+                releaseDate={movie.release_date}
+                onClick={(id) => console.log('Movie clicked:', id)}
+                variant="carousel"
+                rank={title.includes("Top 20") ? index + 1 : undefined}
+              />
             ))}
           </div>
         </div>
