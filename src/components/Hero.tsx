@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { usePopularMovies } from '../hooks/usePopularMovies'
 import { Movie } from '../types/tmdb'
 
@@ -7,6 +8,7 @@ function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [heroMovies, setHeroMovies] = useState<Movie[]>([])
   const containerRef = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (data && data.results && data.results.length > 0) {
@@ -54,10 +56,12 @@ function Hero() {
               >
                 <div 
                   className="hero-background"
+                  onClick={() => navigate(`/movie/${movie.id}`)}
                   style={{
                     backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, transparent 100%), 
                                      url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
-                    backgroundPosition: 'center 30%'
+                    backgroundPosition: 'center 30%',
+                    cursor: 'pointer'
                   }}
                 >
                   <div className="hero-content">
@@ -68,13 +72,25 @@ function Hero() {
                     </div>
                     <p className="hero-overview">{movie.overview}</p>
                     <div className="hero-buttons">
-                      <button className="hero-play-button">
+                      <button 
+                        className="hero-play-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/movie/${movie.id}`);
+                        }}
+                      >
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"/>
                         </svg>
                         재생
                       </button>
-                      <button className="hero-info-button">
+                      <button 
+                        className="hero-info-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/movie/${movie.id}`);
+                        }}
+                      >
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
                         </svg>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './styles.css'
 import Main from './pages/Main'
 import Search from './pages/Search'
+import MovieDetail from './pages/MovieDetail'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
         </Routes>
       </div>
     </Router>

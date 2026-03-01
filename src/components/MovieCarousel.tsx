@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Movie } from '../types/tmdb'
 import MovieCard from './MovieCard'
 
@@ -10,6 +11,7 @@ interface MovieCarouselProps {
 function MovieCarousel({ title, movies }: MovieCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate()
   const itemsPerView = 5 // 한 화면에 보여줄 영화 개수 (5의 배수)
   
   const maxIndex = Math.ceil(movies.length / itemsPerView) - 1
@@ -56,7 +58,7 @@ function MovieCarousel({ title, movies }: MovieCarouselProps) {
                 posterPath={movie.poster_path}
                 voteAverage={movie.vote_average}
                 releaseDate={movie.release_date}
-                onClick={(id) => console.log('Movie clicked:', id)}
+                onClick={(id) => navigate(`/movie/${id}`)}
                 variant="carousel"
                 rank={title.includes("Top 20") ? index + 1 : undefined}
               />

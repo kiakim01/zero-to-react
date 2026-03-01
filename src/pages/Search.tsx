@@ -108,8 +108,7 @@ const Search: React.FC = () => {
   }, [searchTerm]);
 
   const handleMovieClick = (movieId: number) => {
-    // TODO: 영화 상세 페이지로 이동
-    console.log('Movie clicked:', movieId);
+    navigate(`/movie/${movieId}`);
   };
 
   const handleLoadMore = () => {
