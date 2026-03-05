@@ -2,7 +2,12 @@ const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const webpack = require('webpack')
+const dotenv = require('dotenv')
 const common = require('./webpack.common.js')
+
+// Load .env file
+const env = dotenv.config().parsed || {}
 
 module.exports = merge(common, {
   mode: 'production',
@@ -58,8 +63,15 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    // 해쉬 :변경된 파일만 새로 다운로드, 파일의 이름표 (캐쉬랑은 뭐가 다르지 ?)
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
+    }),
+    // Define environment variables for production build
+    new webpack.DefinePlugin({
+      'process.env.VITE_TMDB_TOKEN': JSON.stringify(
+        env.VITE_TMDB_TOKEN || process.env.VITE_TMDB_TOKEN
+      ),
     }),
   ],
   optimization: {
@@ -73,6 +85,7 @@ module.exports = merge(common, {
       }),
       new CssMinimizerPlugin(),
     ],
+    // 벤더 청크 : .....
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
