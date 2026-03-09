@@ -1,4 +1,5 @@
 //_TypeScript 관련 컴파일러 설정들 (type 과 무관한 설정도 보임)
+// 린트 단계에서만
 {
   "compilerOptions": {
     "target": "ES2015", // _타겟에 맞춰 컴파일

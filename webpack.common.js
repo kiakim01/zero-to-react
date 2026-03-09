@@ -2,7 +2,7 @@
 const path = require('path') // _파일 경로 처리
 const HtmlWebpackPlugin = require('html-webpack-plugin') // HTML 파일에 번들 자동 삽입
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 이전 빌드 파일 자동 삭제
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin') // TypeScript 타입 체크 (오잉 ? tsc가 아니네)
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin') // TypeScript 타입 체크 (tsc _ 타입 체킹 하는 녀석)
 const Dotenv = require('dotenv-webpack') // .env 파일 환경변수 로드
 
 module.exports = {
@@ -33,7 +33,7 @@ module.exports = {
         test: /\.(ts|tsx)$/, // _처리할 파일 패턴
         exclude: /node_modules/, // _제외할 폴더
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader', // 컴파일 하는 녀석 지정
           // .ts/.tsx → Babel → .js
         },
       },
