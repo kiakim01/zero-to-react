@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'), //_빌드 파일의 저장 위치(config.js의 "outDir" 와는 어떻게 다를까 ?)
     filename: '[name].[contenthash].js', //_번들된 파일의 이름
+    chunkFilename: '[name].[contenthash].js', // 코드 스플릿된 청크 파일 이름
     publicPath: '/',
     clean: true,
   },
@@ -62,4 +63,21 @@ module.exports = {
       systemvars: true,
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          priority: 10,
+        },
+        common: {
+          minChunks: 2,
+          priority: 5,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
 }
