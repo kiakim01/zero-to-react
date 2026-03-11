@@ -10,7 +10,9 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,json}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,json}\"",
     "lint": "eslint . --fix",
-    "lint:check": "eslint ."
+    "lint:check": "eslint .",
+    "deploy:test": "npm run build && aws s3 sync dist/ s3://watcha-clone-2026-kia --delete --dryrun",
+    "deploy": "npm run build && aws s3 sync dist/ s3://watcha-clone-2026-kia --delete"
   },
   "keywords": [],
   "author": "",
