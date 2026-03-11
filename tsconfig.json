@@ -1,13 +1,31 @@
+//_TypeScript 관련 컴파일러 설정들 (type 과 무관한 설정도 보임)
+// 린트 단계에서만
 {
   "compilerOptions": {
-    "target": "ES2015",        // 변환할 JavaScript 버전
-    "module": "commonjs",      // 모듈 시스템 (e.g. commonjs, esnext)
-    "outDir": "./dist",        // 컴파일된 파일 출력 폴더
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,      // 타입 정의 파일 검사 건너뛰기
-    "jsx": "react"             // JSX 지원
+    "target": "ES2015", // _타겟에 맞춰 컴파일
+    "module": "commonjs", // _webpack.common.js 환경을 상속
+    "outDir": "./dist", // _컴파일된 파일 출력 경로
+    "strict": true, // _타입 체킹 염격 모드
+    "esModuleInterop": true, //_ES6 모듈과 CommonJS 호환성("module": "commonjs" 와는 뭐가 다를까 ?)
+    "skipLibCheck": true, // 라이브러리 .d.ts 파일 타입 체크 생략 (빌드 속도 향상)
+    "jsx": "react",
+    "allowJs": true,
+    "resolveJsonModule": true, //_JSON 파일 import 허용
+    "moduleResolution": "node", // _Node.js 방식으로 모듈 찾기 (node.js 방식이란?)
+    "baseUrl": "./", // 경로 해석의 기준점 (프로젝트 루트)
+    "paths": {
+      // import 경로 별칭 매핑 (상대경로 대신 절대경로 사용 가능)
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"],
+      "@assets/*": ["src/assets/*"],
+      "@types/*": ["src/types/*"],
+      "@api/*": ["src/api/*"],
+      "@lib/*": ["src/lib/*"]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*", "src/**/*.js"], // 컴파일 대상 파일 패턴 (src 폴더의 모든 파일)
+  "exclude": ["node_modules", "dist"] // 컴파일에서 제외할 폴더 (외부 라이브러리, 빌드 결과물)
 }
