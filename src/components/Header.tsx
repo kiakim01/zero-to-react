@@ -6,7 +6,7 @@ function Header() {
     <header className="header-wrapper">
       <div className="header-container">
         {/* 좌측: 로고 */}
-        <div className="logo-section">
+        <Link to="/" className="logo-section">
           <svg
             width="88"
             height="26"
@@ -27,7 +27,7 @@ function Header() {
               fill="#FF0558"
             />
           </svg>
-        </div>
+        </Link>
 
         {/* 우측: 검색, 알림, 프로필 */}
         <div className="nav-section">
