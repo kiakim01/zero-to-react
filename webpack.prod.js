@@ -20,18 +20,7 @@ module.exports = merge(common, {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'postcss-loader', // PostCSS 로더 추가
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require('postcss-preset-env')({
-                    browsers: 'last 2 versions', // 지원할 브라우저 범위 설정
-                  }),
-                ],
-              },
-            },
-          },
+          'postcss-loader',
         ],
       },
       {
@@ -46,18 +35,7 @@ module.exports = merge(common, {
               },
             },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require('postcss-preset-env')({
-                    browsers: 'last 2 versions',
-                  }),
-                ],
-              },
-            },
-          },
+          'postcss-loader',
         ],
       },
     ],
